@@ -355,10 +355,10 @@ BOOL AX_WEB_VIEW_CONTROLLER_iOS10_0_AVAILABLE() { return AX_WEB_VIEW_CONTROLLER_
 #if !AX_WEB_VIEW_CONTROLLER_USING_WEBKIT
     [self progressProxy];
     self.view.backgroundColor = [UIColor colorWithRed:0.180 green:0.192 blue:0.196 alpha:1.00];
-    self.progressView.progressBarView.backgroundColor = [UIColor colorWithRed:81/255.0 green:135/255.0 blue:1/255.0 alpha:1.00];
+    self.progressView.progressBarView.backgroundColor = [UIColor colorWithRed:81/255.0 green:135/255.0 blue:255.0/255.0 alpha:1.00];
 #else
     self.view.backgroundColor = [UIColor whiteColor];
-    self.progressView.progressTintColor = self.navigationController.navigationBar.tintColor;
+    self.progressView.progressTintColor = [UIColor colorWithRed:81/255.0 green:135/255.0 blue:255.0/255.0 alpha:1.00];
     [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
     
     // [_webView.scrollView addObserver:self forKeyPath:@"backgroundColor" options:NSKeyValueObservingOptionNew context:NULL];
@@ -1782,7 +1782,10 @@ BOOL AX_WEB_VIEW_CONTROLLER_iOS10_0_AVAILABLE() { return AX_WEB_VIEW_CONTROLLER_
     
     [self.containerView addSubview:self.webView];
     [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_webView)]];
-    [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_webView, topLayoutGuide, bottomLayoutGuide, _backgroundLabel)]];
+    CGFloat webViewY = self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height;
+    NSString * webViewFormat = [NSString stringWithFormat:@"V:|-%lf-[_webView]|",webViewY];
+    //    [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-%lf-[_webView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_webView, topLayoutGuide, bottomLayoutGuide, _backgroundLabel)]];
+    [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:webViewFormat options:0 metrics:nil views:NSDictionaryOfVariableBindings(_webView, topLayoutGuide, bottomLayoutGuide, _backgroundLabel)]];
     [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_backgroundLabel]-20-[_webView]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundLabel, _webView)]];
     
     [self.containerView bringSubviewToFront:_backgroundLabel];

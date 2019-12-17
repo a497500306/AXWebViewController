@@ -48,7 +48,7 @@
             break;
         case 1:
         {
-            AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"http://www.baidu.com"];
+            AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"https://learn.bihu.com/l/lesson2.html?title=%E5%8C%BA%E5%9D%97%E9%93%BE100%E9%97%AE&desc=%E6%B5%85%E6%98%BE%E6%98%93%E6%87%82%E7%9A%84%E5%85%A5%E9%97%A8%E8%A7%86%E9%A2%91%EF%BC%8C%E5%8A%A9%E4%BD%A0%E6%88%90%E4%B8%BA%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B8%93%E5%AE%B6&img=bihulogo"];
             webVC.showsToolBar = NO;
             // webVC.showsNavigationCloseBarButtonItem = NO;
             if (AX_WEB_VIEW_CONTROLLER_iOS9_0_AVAILABLE()) {
