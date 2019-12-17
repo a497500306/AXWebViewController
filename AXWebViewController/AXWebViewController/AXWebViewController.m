@@ -593,20 +593,20 @@ BOOL AX_WEB_VIEW_CONTROLLER_iOS10_0_AVAILABLE() { return AX_WEB_VIEW_CONTROLLER_
         } else {
             // Fallback on earlier versions
         }
-        
-        if (@available(iOS 10.0, *)) {
-            if ([config respondsToSelector:@selector(setMediaTypesRequiringUserActionForPlayback:)]){
-                [config setMediaTypesRequiringUserActionForPlayback:WKAudiovisualMediaTypeNone];
-            }
-        } else if (@available(iOS 9.0, *)) {
-           if ( [config respondsToSelector:@selector(setRequiresUserActionForMediaPlayback:)]) {
-                [config setRequiresUserActionForMediaPlayback:NO];
-           }
-        } else {
-            if ( [config respondsToSelector:@selector(setMediaPlaybackRequiresUserAction:)]) {
-                [config setMediaPlaybackRequiresUserAction:NO];
-            }
-        }
+
+//        if (@available(iOS 10.0, *)) {
+//            if ([config respondsToSelector:@selector(setMediaTypesRequiringUserActionForPlayback:)]){
+//                [config setMediaTypesRequiringUserActionForPlayback:WKAudiovisualMediaTypeNone];
+//            }
+//        } else if (@available(iOS 9.0, *)) {
+//           if ( [config respondsToSelector:@selector(setRequiresUserActionForMediaPlayback:)]) {
+//                [config setRequiresUserActionForMediaPlayback:NO];
+//           }
+//        } else {
+//            if ( [config respondsToSelector:@selector(setMediaPlaybackRequiresUserAction:)]) {
+//                [config setMediaPlaybackRequiresUserAction:NO];
+//            }
+//        }
         
     }
     _webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
@@ -963,8 +963,8 @@ BOOL AX_WEB_VIEW_CONTROLLER_iOS10_0_AVAILABLE() { return AX_WEB_VIEW_CONTROLLER_
     }
 }
 - (void)didStartLoad{
-    _backgroundLabel.text = AXWebViewControllerLocalizedString(@"loading", @"Loading");
-    self.navigationItem.title = AXWebViewControllerLocalizedString(@"loading", @"Loading");
+    _backgroundLabel.text = AXWebViewControllerLocalizedString(@"加载中...", @"Loading");
+    self.navigationItem.title = AXWebViewControllerLocalizedString(@"加载中...", @"Loading");
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     if (_navigationType == AXWebViewControllerNavigationBarItem) {
         [self updateNavigationItems];
