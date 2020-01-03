@@ -585,14 +585,14 @@ BOOL AX_WEB_VIEW_CONTROLLER_iOS10_0_AVAILABLE() { return AX_WEB_VIEW_CONTROLLER_
         if ([config respondsToSelector:@selector(setAllowsInlineMediaPlayback:)]) {
             [config setAllowsInlineMediaPlayback:YES];
         }
-        if (@available(iOS 9.0, *)) {
-            if ([config respondsToSelector:@selector(setApplicationNameForUserAgent:)]) {
-
-            [config setApplicationNameForUserAgent:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]];
-            }
-        } else {
-            // Fallback on earlier versions
-        }
+//        if (@available(iOS 9.0, *)) {
+//            if ([config respondsToSelector:@selector(setApplicationNameForUserAgent:)]) {
+//
+//            [config setApplicationNameForUserAgent:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]];
+//            }
+//        } else {
+//            // Fallback on earlier versions
+//        }
 
 //        if (@available(iOS 10.0, *)) {
 //            if ([config respondsToSelector:@selector(setMediaTypesRequiringUserActionForPlayback:)]){

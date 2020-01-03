@@ -48,7 +48,7 @@
             break;
         case 1:
         {
-            AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"https://learn.bihu.com/l/lesson2.html?title=%E5%8C%BA%E5%9D%97%E9%93%BE100%E9%97%AE&desc=%E6%B5%85%E6%98%BE%E6%98%93%E6%87%82%E7%9A%84%E5%85%A5%E9%97%A8%E8%A7%86%E9%A2%91%EF%BC%8C%E5%8A%A9%E4%BD%A0%E6%88%90%E4%B8%BA%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B8%93%E5%AE%B6&img=bihulogo"];
+            AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"https://m.toutiaocdn.com/group/6777588930440069646/?app=news_article&timestamp=1578040289&req_id=2020010316312901001404115835040B80&group_id=6777588930440069646&tt_from=copy_link&utm_source=copy_link&utm_medium=toutiao_ios&utm_campaign=client_share"];
             webVC.showsToolBar = NO;
             // webVC.showsNavigationCloseBarButtonItem = NO;
             if (AX_WEB_VIEW_CONTROLLER_iOS9_0_AVAILABLE()) {
@@ -59,7 +59,10 @@
             break;
         case 2:
         {
-            AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"http://www.baidu.com"];
+//            AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"http://www.baidu.com"];
+//            AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"http://172.16.10.209:3001"];
+            AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"https://m.toutiaocdn.com/group/6777588930440069646/?app=news_article&timestamp=1578040289&req_id=2020010316312901001404115835040B80&group_id=6777588930440069646&tt_from=copy_link&utm_source=copy_link&utm_medium=toutiao_ios&utm_campaign=client_share"];
+            webVC.enabledWebViewUIDelegate = YES;
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webVC];
             nav.navigationBar.tintColor = [UIColor colorWithRed:0.322 green:0.322 blue:0.322 alpha:1.00];
             [self presentViewController:nav animated:YES completion:NULL];
