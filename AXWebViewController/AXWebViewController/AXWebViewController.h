@@ -142,6 +142,7 @@ API_AVAILABLE(ios(7.0))
 /// Default is NO. Enabled to allow present alert views.
 @property(assign, nonatomic) BOOL enabledWebViewUIDelegate;
 #endif
+@property(copy, nonatomic) NSString *addUserAgent;
 /// Open app link in app store app. Default is NO.
 @property(assign, nonatomic) BOOL reviewsAppInAppStore;
 /// Max length of title string content. Default is 10.
